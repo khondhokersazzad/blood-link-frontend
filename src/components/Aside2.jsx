@@ -7,7 +7,7 @@ const Aside2 = () => {
       <aside className="w-64 min-h-screen bg-gray-900 text-gray-200 flex flex-col">
         {/* Logo / Project Name */}
         <div className="px-6 py-5 border-b border-gray-800">
-          <h1 className="text-2xl font-bold text-red-500">BloodLink</h1>
+          <Link to='/' className="text-2xl font-bold text-red-500">BloodLink</Link>
           <p className="text-xs text-gray-400 mt-1">
             Linking Lives Through Blood
           </p>
@@ -19,17 +19,17 @@ const Aside2 = () => {
             Dashboard
           </div>
 
-          <Link className="px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
+          <Link className="px-4 py-2 block rounded-lg hover:bg-gray-800 cursor-pointer">
             Profile
           </Link>
 
-          <Link to='/dashboard/add-request' className="px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
+          <Link to='/dashboard/add-request' className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer">
             Blood Requests
           </Link>
 
-          <div className="px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
-            Campaigns
-          </div>
+          <Link to='/dashboard/users' className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer">
+            All Users
+          </Link>
 
           <div className="px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
             Reports

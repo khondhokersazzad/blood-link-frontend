@@ -11,6 +11,8 @@ import Forget from "../pages/Forget";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import DashBoard from "../pages/dashboard/DashBoard";
 import AddRequest from "../pages/addRequest/AddRequest";
+import AllUsers from "../pages/dashboard/allUsers/AllUsers";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,9 @@ const router = createBrowserRouter([
 
   {
     path: "/dashboard",
-    element: <DashBoardLayout></DashBoardLayout>,
+    element: <PrivateRoute>
+      <DashBoardLayout></DashBoardLayout>
+    </PrivateRoute>,
     children:[
       {
         path: "/dashboard/",
@@ -37,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add-request",
         element: <AddRequest></AddRequest>
+      },
+
+      {
+        path: "/dashboard/users",
+        element: <AllUsers></AllUsers>
       },
     ]
     
