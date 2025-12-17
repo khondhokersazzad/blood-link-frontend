@@ -82,7 +82,7 @@ const Register = () => {
           })
             .then(() => {
               setUser(user);
-              //navigate("/");
+              navigate("/");
               console.log(user);
               axios
                 .post("http://localhost:5000/users", formData)
