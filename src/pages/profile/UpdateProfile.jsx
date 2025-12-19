@@ -31,10 +31,11 @@ const UpdateProfile = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
     const bloodgrp = e.target.bloodgrp.value;
     const upazilla = e.target.upazilla.value;
     const district = e.target.district.value;
-    const formData = { bloodgrp, upazilla, district };
+    const formData = { name, bloodgrp, upazilla, district };
 
     axiosSecure.put("/users/data", formData).then((res) => {
       console.log(res.data);
@@ -79,6 +80,7 @@ const UpdateProfile = () => {
               <input
                 type="text"
                 defaultValue={user?.name}
+                name="name"
                 className="input input-bordered w-full bg-gray-100"
               />
             </div>
@@ -156,7 +158,7 @@ const UpdateProfile = () => {
                 ))}
               </select>
             </div>
-            <button className="btn btn-sm btn-outline">Update Profile</button>
+            <button className="btn btn-sm btn-outline ">Update Profile</button>
           </form>
         </div>
       </div>
