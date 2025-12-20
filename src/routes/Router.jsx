@@ -17,6 +17,7 @@ import MyRequest from "../pages/dashboard/myRequest/MyRequest";
 import Funding from "../pages/Funding";
 import Profile from "../pages/profile/Profile";
 import UpdateProfile from "../pages/profile/UpdateProfile";
+import SearchRequest from "../pages/searchRequest/SearchRequest";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,13 @@ const router = createBrowserRouter([
         path: "/funding",
         element: <Funding></Funding>
       },
+
+      {
+        path: "/search-request",
+        element: <SearchRequest></SearchRequest>
+      },
     ]
+    
     
   },
 

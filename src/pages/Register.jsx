@@ -169,7 +169,6 @@ const Register = () => {
                   required
                 />
                 <label className="label">Choose Your Blood Group</label>
-
                 <select
                   name="bloodgrp"
                   defaultValue="Select Blood Group"

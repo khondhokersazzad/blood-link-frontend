@@ -65,6 +65,19 @@ const NavBar = () => {
                     ? "text-purple-700 font-bold underline underline-offset-4"
                     : "hover:text-purple-700"
                 }
+                to="/search-request"
+              >
+                Search
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-purple-700 font-bold underline underline-offset-4"
+                    : "hover:text-purple-700"
+                }
                 to="/funding"
               >
                 Funding
