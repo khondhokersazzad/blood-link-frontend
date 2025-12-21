@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../../hooks/useAxios";
+import { Link } from "react-router";
 
 const SearchRequest = () => {
   const [upazila, setUpazila] = useState([]);
@@ -40,7 +41,9 @@ const SearchRequest = () => {
     });
   };
 
-  console.log(bloodReq);
+  
+
+
   return (
     <div>
       <form onSubmit={handleSearch} className="card-body">
@@ -149,9 +152,9 @@ const SearchRequest = () => {
 
             {/* Footer */}
             <div className="mt-5">
-              <button className="w-full rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition">
+              <Link  to={`/request-details/${b._id}`} className="w-full rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition">
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         );

@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  
-} from "react-router";
+import { createBrowserRouter } from "react-router";
 import HomePageLayout from "../layout/HomePageLayout";
 import Home from "../pages/Home";
 import AuthLayout from "../layout/AuthLayout";
@@ -18,71 +15,82 @@ import Funding from "../pages/Funding";
 import Profile from "../pages/profile/Profile";
 import UpdateProfile from "../pages/profile/UpdateProfile";
 import SearchRequest from "../pages/searchRequest/SearchRequest";
+import AllRequest from "../pages/allRequest/AllRequest";
+import RequestDetails from "../pages/requestDetails/RequestDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePageLayout></HomePageLayout>,
-    children:[
+    children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
 
       {
         path: "/funding",
-        element: <Funding></Funding>
+        element: <Funding></Funding>,
       },
 
       {
         path: "/search-request",
-        element: <SearchRequest></SearchRequest>
+        element: <SearchRequest></SearchRequest>,
       },
-    ]
-    
-    
+
+      {
+        path: "/request-details/:id",
+        element: (
+          <PrivateRoute>
+            <RequestDetails></RequestDetails>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 
   {
     path: "/dashboard",
-    element: <PrivateRoute>
-      <DashBoardLayout></DashBoardLayout>
-    </PrivateRoute>,
-    children:[
+    element: (
+      <PrivateRoute>
+        <DashBoardLayout></DashBoardLayout>
+      </PrivateRoute>
+    ),
+    children: [
       {
         path: "/dashboard/",
-        element: <DashBoard></DashBoard>
+        element: <DashBoard></DashBoard>,
       },
 
       {
         path: "/dashboard/profile",
-        element: <Profile></Profile>
+        element: <Profile></Profile>,
       },
       {
         path: "/dashboard/update-profile",
-        element: <UpdateProfile></UpdateProfile>
+        element: <UpdateProfile></UpdateProfile>,
       },
 
       {
         path: "/dashboard/add-request",
-        element: 
-        
-        <AddRequest></AddRequest>
-
-        
+        element: <AddRequest></AddRequest>,
       },
 
       {
         path: "/dashboard/users",
-        element: <AllUsers></AllUsers>
+        element: <AllUsers></AllUsers>,
       },
 
       {
         path: "/dashboard/my-request",
-        element: <MyRequest></MyRequest>
+        element: <MyRequest></MyRequest>,
       },
-    ]
-    
+
+      {
+        path: "/dashboard/all-request",
+        element: <AllRequest></AllRequest>,
+      },
+    ],
   },
 
   {
@@ -103,7 +111,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 ]);
 
 export default router;

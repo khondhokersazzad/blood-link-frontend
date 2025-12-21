@@ -9,10 +9,10 @@ import { useNavigate } from "react-router";
 const Aside2 = () => {
   const { role } = useContext(AuthContext);
   const navigate = useNavigate();
-  const handleLogout = () =>{
+  const handleLogout = () => {
     signOut(auth);
-    navigate('/auth/login');
-  }
+    navigate("/auth/login");
+  };
   return (
     <div>
       <aside className="w-64 min-h-screen bg-gray-900 text-gray-200 flex flex-col">
@@ -32,37 +32,55 @@ const Aside2 = () => {
             Dashboard
           </div>
 
-          <Link to="/dashboard/profile" className="px-4 py-2 block rounded-lg hover:bg-gray-800 cursor-pointer">
+          <Link
+            to="/dashboard/profile"
+            className="px-4 py-2 block rounded-lg hover:bg-gray-800 cursor-pointer"
+          >
             Profile
           </Link>
 
           {role == "donor" && (
-            <Link
-              to="/dashboard/add-request"
-              className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer"
-            >
-              Blood Requests
-            </Link>
+            <div className="">
+              <Link
+                to="/dashboard/add-request"
+                className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer"
+              >
+                Blood Requests
+              </Link>
+
+              <Link
+                to="/dashboard/my-request"
+                className="px-4 py-2 my-2 rounded-lg hover:bg-gray-800 cursor-pointer"
+              >
+                My Request
+              </Link>
+            </div>
           )}
 
           {role == "admin" && (
-            <Link
+            <div>
+              <Link
               to="/dashboard/users"
               className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer"
             >
               All Users
             </Link>
+
+             <Link
+              to="/dashboard/all-request"
+              className="px-4 py-2 rounded-lg hover:bg-gray-800 block cursor-pointer"
+            >
+              All Blood Requests
+            </Link>
+            </div>
+            
           )}
 
-          <Link to="/dashboard/my-request" className="px-4 py-2 rounded-lg hover:bg-gray-800 cursor-pointer">
-            My Request
-          </Link>
+          
         </nav>
 
         {/* Footer */}
         <div className="px-6 py-4 border-t border-gray-800 text-sm text-gray-400 flex items-center justify-between">
-      
-
           <button
             type="button"
             onClick={handleLogout}

@@ -94,16 +94,16 @@ const handleNext = () => {
                   </div>
                 </td>
 
-                {/* Status (Assuming you have a status field) */}
+                {/* Status  */}
                 <td>
                   <span
                     className={`badge badge-sm ${
-                      req.status === "inprogress"
+                      req.donation_status === "inprogress"
                         ? "badge-info"
                         : "badge-warning"
                     } text-white`}
                   >
-                    {req.status || "pending"}
+                    {req.donation_status || "pending"}
                   </span>
                 </td>
 
