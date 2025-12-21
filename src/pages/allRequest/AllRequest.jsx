@@ -171,11 +171,11 @@ const AllRequest = () => {
                       View
                     </Link>
 
-                    <button className="btn btn-xs btn-success btn-outline">
+                    <Link to={`/update-request-details/${req?._id}`} className="btn btn-xs btn-success btn-outline">
                       Edit
-                    </button>
+                    </Link >
 
-                    <Link onClick={()=>handleDelete(req._id)} className="btn btn-xs btn-error btn-outline">
+                    <Link onClick={()=>handleDelete(req?._id)} className="btn btn-xs btn-error btn-outline">
                       Delete
                     </Link>
 

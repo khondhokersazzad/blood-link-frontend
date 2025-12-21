@@ -17,6 +17,7 @@ import UpdateProfile from "../pages/profile/UpdateProfile";
 import SearchRequest from "../pages/searchRequest/SearchRequest";
 import AllRequest from "../pages/allRequest/AllRequest";
 import RequestDetails from "../pages/requestDetails/RequestDetails";
+import UpdateRequest from "../pages/addRequest/UpdateRequest";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <RequestDetails></RequestDetails>
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/update-request-details/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateRequest></UpdateRequest>
           </PrivateRoute>
         ),
       },
