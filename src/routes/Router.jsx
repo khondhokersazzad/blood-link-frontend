@@ -18,6 +18,7 @@ import SearchRequest from "../pages/searchRequest/SearchRequest";
 import AllRequest from "../pages/allRequest/AllRequest";
 import RequestDetails from "../pages/requestDetails/RequestDetails";
 import UpdateRequest from "../pages/addRequest/UpdateRequest";
+import BloodDonationRequest from "../pages/bloodDonationRequest/BloodDonationRequest";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "/funding",
         element: <Funding></Funding>,
+      },
+
+      {
+        path: "/blood-donation-request",
+        element: <BloodDonationRequest></BloodDonationRequest>,
       },
 
       {

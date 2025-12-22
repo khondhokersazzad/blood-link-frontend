@@ -52,7 +52,7 @@ const NavBar = () => {
                     ? "text-purple-700 font-bold underline underline-offset-4"
                     : "hover:text-purple-700"
                 }
-                to="/all-products"
+                to="/blood-donation-request"
               >
                 Donation Requests
               </NavLink>
