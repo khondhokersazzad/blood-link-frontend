@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
+import FeaturedSection from '../components/FeaturedSection';
+import ContactSection from '../components/ContactSection';
+import WhyDonate from '../components/WhyDonate';
 
 const Home = () => {
   return (
@@ -47,6 +50,15 @@ const Home = () => {
 
       {/* Optional: Decorative bottom wave or gradient */}
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/50 to-transparent"></div>
+    </section>
+    <section>
+      <FeaturedSection></FeaturedSection>
+    </section>
+    <section>
+      <WhyDonate></WhyDonate>
+    </section>
+    <section>
+      <ContactSection></ContactSection>
     </section>
     </div>
   );
