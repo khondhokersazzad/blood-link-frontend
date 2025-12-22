@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Droplets, Clock, AlertCircle, ChevronRight } from "lucide-react";
 import { Link } from "react-router";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const VolunteerDashBoardHome = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
+  const{user} = useContext(AuthContext);
 
   useEffect(() => {
     axiosSecure.get('/all-request-count')
@@ -53,7 +56,16 @@ const VolunteerDashBoardHome = () => {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-800">Volunteer Panel</h1>
-        <p className="text-gray-500">Coordinate and verify active blood donation requests.</p>
+        <p className="text-gray-600 text-lg flex items-center gap-2">
+          Welcome back,
+          <span className="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg font-bold text-2xl shadow-sm">
+            {user?.displayName || "Hero"}
+          </span>
+          !
+          <span className="text-gray-400 text-sm ml-2">
+            Here is what's happening today.
+          </span>
+        </p>
       </div>
 
       {/* Stats Grid */}

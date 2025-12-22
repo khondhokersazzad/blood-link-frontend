@@ -85,8 +85,8 @@ const Register = () => {
               navigate("/");
               console.log(user);
               axios
-                .post("http://localhost:5000/users", formData)
-                .then((res) => console.log(res.data))
+                .post("https://blood-link-six-kappa.vercel.app/users", formData)
+                //.then((res) => console.log(res.data))
                 .catch((err) => console.log(err));
             })
             .catch((error) => {

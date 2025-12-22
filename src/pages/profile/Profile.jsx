@@ -1,17 +1,15 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router";
 
-
 const Profile = () => {
-  
   const [user, setUser] = useState(null);
-  
+
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
     axiosSecure.get("/users/data").then((res) => setUser(res.data));
   }, [axiosSecure]);
-  console.log(user);
+  
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
@@ -21,7 +19,12 @@ const Profile = () => {
           <h2 className="text-xl font-semibold text-gray-800">My Profile</h2>
 
           {/* Edit button (UI only) */}
-          <Link to='/dashboard/update-profile' className="btn btn-sm btn-outline">Edit Profile</Link>
+          <Link
+            to="/dashboard/update-profile"
+            className="btn btn-sm btn-outline"
+          >
+            Edit Profile
+          </Link>
         </div>
 
         {/* Body */}
@@ -47,7 +50,6 @@ const Profile = () => {
               <input
                 type="text"
                 value={user?.name}
-              
                 className="input input-bordered w-full bg-gray-100"
               />
             </div>
@@ -60,7 +62,6 @@ const Profile = () => {
               <input
                 type="email"
                 value={user?.email}
-                 
                 className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
               />
             </div>
@@ -73,7 +74,6 @@ const Profile = () => {
               <input
                 type="text"
                 value={user?.bloodgrp}
-                 
                 className="input input-bordered w-full bg-gray-100"
               />
             </div>
@@ -86,7 +86,6 @@ const Profile = () => {
               <input
                 type="text"
                 value={user?.district}
-                 
                 className="input input-bordered w-full bg-gray-100"
               />
             </div>
@@ -99,7 +98,6 @@ const Profile = () => {
               <input
                 type="text"
                 value={user?.upazilla}
-                 
                 className="input input-bordered w-full bg-gray-100"
               />
             </div>

@@ -70,8 +70,9 @@ const AllRequest = () => {
   };
 
   useEffect(() => {
-    axiosSecure.get(`/sort-request?donation_status=${sortStatus}`)
-      .then(res => setMyRequest(res.data))
+    axiosSecure
+      .get(`/sort-request?donation_status=${sortStatus}`)
+      .then((res) => setMyRequest(res.data));
   }, [axiosSecure, sortStatus]);
 
   // Handle Status Change (Start, Done, Cancel)
@@ -105,12 +106,14 @@ const AllRequest = () => {
       <select
         onChange={(e) => {
           setSortStatus(e.target.value);
-          console.log(sortStatus);
+          
         }}
         defaultValue="All Status"
         className="select m-5"
       >
-        <option value="" disabled={false}>All status</option>
+        <option value="" disabled={false}>
+          All status
+        </option>
         <option>completed</option>
         <option>pending</option>
         <option>canceled</option>
@@ -183,22 +186,22 @@ const AllRequest = () => {
                     >
                       View
                     </Link>
-                   {role === "admin" && (
-                        <>
-                          <Link
-                            to={`/update-request-details/${req._id}`}
-                            className="btn btn-xs btn-success btn-outline"
-                          >
-                            Edit
-                          </Link>
-                          <button
-                            onClick={() => handleDelete(req._id)}
-                            className="btn btn-xs btn-error btn-outline"
-                          >
-                            Delete
-                          </button>
-                        </>
-                      )}
+                    {role === "admin" && (
+                      <>
+                        <Link
+                          to={`/update-request-details/${req._id}`}
+                          className="btn btn-xs btn-success btn-outline"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(req._id)}
+                          className="btn btn-xs btn-error btn-outline"
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
 
                     {/* Status Toggle Buttons */}
                     {req.donation_status === "pending" && (

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
-import useAxiosSecure from "../../hooks/useAxiosSecure.jsx"
+import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import { toast } from "react-toastify";
 
 const AddRequest = () => {
@@ -34,7 +34,7 @@ const AddRequest = () => {
     const rec_district = e.target.rec_district.value;
     const rec_upazilla = e.target.rec_upazilla.value;
     const address = e.target.address.value;
-   
+
     const hospital = e.target.hospital.value;
     const req_date = e.target.req_date.value;
     const req_time = e.target.req_time.value;
@@ -52,13 +52,13 @@ const AddRequest = () => {
       req_time,
     };
 
-    axiosSecure.post('/request',formData)
-    .then(res=> {
-      console.log(res.data)
-      toast.success("Request Successfully Submitted");
-    
-    })
-    .catch(err => console.log(err));
+    axiosSecure
+      .post("/request", formData)
+      .then((res) => {
+        //console.log(res.data);
+        toast.success("Request Successfully Submitted");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

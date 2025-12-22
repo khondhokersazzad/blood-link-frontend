@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import axios from "axios";
-import { Navigate , useNavigate} from "react-router";
+import { Navigate, useNavigate } from "react-router";
 
 const UpdateProfile = () => {
   const [user, setUser] = useState(null);
@@ -27,7 +27,7 @@ const UpdateProfile = () => {
   useEffect(() => {
     axiosSecure.get("/users/data").then((res) => setUser(res.data));
   }, [axiosSecure]);
-  console.log(user);
+  
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -37,11 +37,13 @@ const UpdateProfile = () => {
     const district = e.target.district.value;
     const formData = { name, bloodgrp, upazilla, district };
 
-    axiosSecure.put("/users/data", formData).then((res) => {
-      console.log(res.data);
-      navigation("/dashboard/profile");
-    })
-    .catch((errr) => console.log(errr));
+    axiosSecure
+      .put("/users/data", formData)
+      .then((res) => {
+        //console.log(res.data);
+        navigation("/dashboard/profile");
+      })
+      .catch((errr) => console.log(errr));
   };
 
   return (

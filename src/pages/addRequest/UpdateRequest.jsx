@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
-import useAxiosSecure from "../../hooks/useAxiosSecure.jsx"
+import useAxiosSecure from "../../hooks/useAxiosSecure.jsx";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router";
 
 const UpdateRequest = () => {
   const { user } = useContext(AuthContext);
-  const {id} = useParams();
+  const { id } = useParams();
 
   const navigation = useNavigate();
 
@@ -29,13 +29,12 @@ const UpdateRequest = () => {
       .then((res) => setDistrict(res.data.districts))
       .catch((err) => console.log(err));
 
-    axiosSecure.get(`/update-request-details/${id}`)
-    .then(res=> {
-      setBloodReq(res.data)
-      
-    
-    })
-    .catch(err => console.log(err));
+    axiosSecure
+      .get(`/update-request-details/${id}`)
+      .then((res) => {
+        setBloodReq(res.data);
+      })
+      .catch((err) => console.log(err));
   }, [axiosSecure, id]);
 
   const handleUpdateRequest = (e) => {
@@ -47,7 +46,7 @@ const UpdateRequest = () => {
     const rec_district = e.target.rec_district.value;
     const rec_upazilla = e.target.rec_upazilla.value;
     const address = e.target.address.value;
-   
+
     const hospital = e.target.hospital.value;
     const req_date = e.target.req_date.value;
     const req_time = e.target.req_time.value;
@@ -65,13 +64,14 @@ const UpdateRequest = () => {
       req_time,
     };
 
-    axiosSecure.put(`/update-request-details/${bloodReq?._id}`, formData).then((res) => {
-      setBloodReq(res.data);
-      toast.success("Successfully Updated Request")
-      navigation("/dashboard/all-request");
-    })
-    .catch((errr) => console.log(errr));
-  
+    axiosSecure
+      .put(`/update-request-details/${bloodReq?._id}`, formData)
+      .then((res) => {
+        setBloodReq(res.data);
+        toast.success("Successfully Updated Request");
+        navigation("/dashboard/all-request");
+      })
+      .catch((errr) => console.log(errr));
   };
 
   return (
@@ -129,7 +129,6 @@ const UpdateRequest = () => {
               <input
                 type="text"
                 name="rec_name"
-                
                 defaultValue={bloodReq?.rec_name}
                 placeholder="Recipient Full Name"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
@@ -141,7 +140,6 @@ const UpdateRequest = () => {
                 Blood Group
               </label>
               <select
-                
                 name="rec_blood"
                 defaultValue={bloodReq?.rec_blood}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"

@@ -5,7 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 const RequestDetails = () => {
   const [details, setDetails] = useState();
   const [donor, setDonor] = useState();
-  
+
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
 
@@ -24,21 +24,21 @@ const RequestDetails = () => {
   }, [axiosSecure]);
 
   const handleStatusChange = async (status) => {
-  try {
-    const res = await axiosSecure.patch(
-      `/request-details/${id}?donation_status=${status}`
-    );
+    try {
+      const res = await axiosSecure.patch(
+        `/request-details/${id}?donation_status=${status}`
+      );
 
-    if (res.data.modifiedCount > 0) {
-      setDetails((prev) => ({
-        ...prev,
-        donation_status: status,
-      }));
+      if (res.data.modifiedCount > 0) {
+        setDetails((prev) => ({
+          ...prev,
+          donation_status: status,
+        }));
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-};
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 flex justify-center items-center">
@@ -143,7 +143,7 @@ const RequestDetails = () => {
             Confirm Donation
           </h3>
           <p className="text-gray-600 mb-6 italic">
-            Please verify your information before confirming. 
+            Please verify your information before confirming.
           </p>
 
           <div className="space-y-4">
@@ -178,7 +178,10 @@ const RequestDetails = () => {
               <button className="btn btn-outline border-gray-300">
                 Cancel
               </button>
-              <button onClick={()=>handleStatusChange("inprogress")} className="btn bg-red-600 text-white border-none hover:bg-red-700">
+              <button
+                onClick={() => handleStatusChange("inprogress")}
+                className="btn bg-red-600 text-white border-none hover:bg-red-700"
+              >
                 Confirm Donation
               </button>
             </form>

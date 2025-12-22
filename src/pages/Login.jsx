@@ -1,4 +1,8 @@
-import { getAuth, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
@@ -8,65 +12,55 @@ import { GoogleAuthProvider } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { AuthContext } from "../provider/AuthProvider";
 
-
 const Login = () => {
   const [show, setShow] = useState(false);
-  const [userEmail,setUserEmail] = useState('');
-  const {user, setUser, handleGoogleSignIn} = useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState("");
+  const { user, setUser, handleGoogleSignIn } = useContext(AuthContext);
 
   const location = useLocation();
-   
+
   const navigate = useNavigate();
-  
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log({ email, password });
-    
+
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         const user = res.user;
         setUser(user);
         // navigate(location.state);
         //navigate('/profile');
-        navigate('/');
+        navigate("/");
         toast.success("Sign in successfull");
-        
-        
       })
       .catch((error) => {
         toast.error(error.message);
       });
   };
 
-  const googleSignIn = () =>{
+  const googleSignIn = () => {
     handleGoogleSignIn()
-     .then((res) => {
+      .then((res) => {
         const user = res.user;
         setUser(user);
-        navigate('/profile');
+        navigate("/profile");
         toast.success("Sign in successfull");
-        
-        
       })
       .catch((error) => {
         toast.error(error.message);
       });
-  }
+  };
 
-  const handleForget = () =>{
-    navigate(`/auth/forget/${userEmail}`)
-   
-  }
- 
-
-  
-
+  const handleForget = () => {
+    navigate(`/auth/forget/${userEmail}`);
+  };
 
   return (
     <div>
-    <title>Login</title>
+      <title>Login</title>
 
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col w-full">
@@ -74,7 +68,6 @@ const Login = () => {
 
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form onSubmit={handleLogin} className="card-body">
-            
               <fieldset className="fieldset">
                 <label className="label">Email</label>
                 <input
@@ -103,13 +96,23 @@ const Login = () => {
                   </span>
                 </div>
                 <div>
-                  <button onClick={handleForget}  type="button" className="link link-hover ">Forgot password?</button>
+                  <button
+                    onClick={handleForget}
+                    type="button"
+                    className="link link-hover "
+                  >
+                    Forgot password?
+                  </button>
                 </div>
-                <button  type="submit" className="btn btn-neutral mt-4">
+                <button type="submit" className="btn btn-neutral mt-4">
                   Login
                 </button>
-                
-                <button type='button' onClick={googleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
+
+                <button
+                  type="button"
+                  onClick={googleSignIn}
+                  className="btn bg-white text-black border-[#e5e5e5]"
+                >
                   <svg
                     aria-label="Google logo"
                     width="16"
