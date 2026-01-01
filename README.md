@@ -27,21 +27,27 @@ Backend API: https://blood-link-six-kappa.vercel.app/
 ## Core Features
 
 🔐 Role-Based Authentication
+
 Admin, Donor, and Volunteer dashboards
 
 🧾 Blood Request Management
+
 Create, view, update, and delete blood requests
 
 🔎 Advanced Search & Filtering
+
 Search by blood group, district, and upazila
 
 📊 Dashboard Views
+
 Separate dashboards for each role
 
 ⚡ Real-Time UI Updates
+
 Status updates without page reload
 
 📱 Responsive Design
+
 Fully optimized for mobile, tablet, and desktop
 
 
@@ -57,4 +63,5 @@ Fully optimized for mobile, tablet, and desktop
 ## Run the Project Locally
 
 > The backend is maintained in a separate repository and communicates via REST APIs.
+
 > https://github.com/khondhokersazzad/bloodlink-backend
