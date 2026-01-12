@@ -1,16 +1,100 @@
-# React + Vite
+🩸 BloodLink – Blood Donation Management System (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BloodLink is a web-based blood donation management platform designed to connect blood donors, volunteers, and administrators efficiently.  
+The application focuses on usability, role-based access, and real-time blood request management to help save lives through faster coordination.
 
-Currently, two official plugins are available:
+🚀 Live Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend Live URL: https://bloodlink-100.netlify.app/
+Backend API: https://blood-link-six-kappa.vercel.app/
 
-## React Compiler
+## 3. Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+- DaisyUI
+- React Router 
+- Axios
 
-## Expanding the ESLint configuration
+### Authentication & Hosting
+- Firebase Authentication
+- Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## Core Features
+
+🔐 Role-Based Authentication
+
+Admin, Donor, and Volunteer dashboards
+
+🧾 Blood Request Management
+
+Create, view, update, and delete blood requests
+
+🔎 Advanced Search & Filtering
+
+Search by blood group, district, and upazila
+
+📊 Dashboard Views
+
+Separate dashboards for each role
+
+⚡ Real-Time UI Updates
+
+Status updates without page reload
+
+📱 Responsive Design
+
+Fully optimized for mobile, tablet, and desktop
+
+
+## Dependency Used
+- react
+- react-router
+- Axios
+- firebase
+- react-toastify
+- react-sweatalert2
+- react-icons
+
+## Run the Project Locally
+
+
+1. To run the BloodLink frontend locally, ensure that Node.js (v16 or later) and npm are installed on your system.
+Clone the repository and navigate into the project directory using the following commands:
+
+
+```bash
+git clone https://github.com/khondhokersazzad/blood-link-frontend.git
+cd blood-link-frontend
+
+2.Install the required dependencies:
+npm install
+
+3. Create a .env.local file in the root directory and add the following environment variables:
+VITE_API_URL=http://localhost:5000
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+4. Make sure the backend server is running locally or that the API URL points to a deployed backend service. Start the development server:
+
+npm run dev
+5. The application will be available at:
+
+http://localhost:5173
+
+
+---
+
+
+
+> The backend is maintained in a separate repository and communicates via REST APIs.
+
+> https://github.com/khondhokersazzad/bloodlink-backend
